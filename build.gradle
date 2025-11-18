@@ -129,7 +129,7 @@ legacyForge {
 }
 jar {
     manifest.attributes([
-            "MixinConfigs": "examplemod.mixins.json"
+            "MixinConfigs": "gregsdelight.mixins.json",
     ])
 }
 
@@ -153,6 +153,9 @@ dependencies {
     modImplementation("com.lowdragmc.ldlib:ldlib-forge-${minecraft_version}:${ldlib_version}") { transitive = false }
     modImplementation("com.tterrag.registrate:Registrate:${registrate_version}")
     modImplementation("dev.toma.configuration:configuration-forge-${minecraft_version}:${configuration_version}")
+
+    // Farmer's Delight
+    modImplementation("curse.maven:farmers-delight-398521:6917255") // 1.20.1-1.2.9
 
     // lombok
     compileOnly 'org.projectlombok:lombok:1.18.24'

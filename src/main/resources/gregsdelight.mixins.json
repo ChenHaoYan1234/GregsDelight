@@ -1,10 +1,9 @@
 {
   "required": true,
-  "package": "com.example.examplemod.mixin",
+  "package": "bootmgr.gregsdelight.mixin",
   "compatibilityLevel": "JAVA_17",
   "minVersion": "0.8",
   "mixins": [
-    "DummyMixin"
   ],
   "client": [
   ],
