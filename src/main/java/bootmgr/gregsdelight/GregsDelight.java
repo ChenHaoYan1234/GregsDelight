@@ -19,6 +19,9 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
+import bootmgr.gregsdelight.common.machine.GregsDelightMachineUtils;
+import bootmgr.gregsdelight.common.machine.GregsDelightMachines;
+import bootmgr.gregsdelight.data.GregsDelightRecipeTypes;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -28,7 +31,7 @@ public class GregsDelight {
 
     public static final String MOD_ID = "gregsdelight";
     public static final Logger LOGGER = LogManager.getLogger();
-    public static GTRegistrate EXAMPLE_REGISTRATE = GTRegistrate.create(GregsDelight.MOD_ID);
+    public static GTRegistrate GREGSDELIGHT_REGISTRATE = GTRegistrate.create(GregsDelight.MOD_ID);
 
     public GregsDelight() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -49,7 +52,7 @@ public class GregsDelight {
         // we need to register our object like this!
         MinecraftForge.EVENT_BUS.register(this);
 
-        EXAMPLE_REGISTRATE.registerRegistrate();
+        GREGSDELIGHT_REGISTRATE.registerRegistrate();
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -110,7 +113,7 @@ public class GregsDelight {
      * @param event
      */
     private void registerRecipeTypes(GTCEuAPI.RegisterEvent<ResourceLocation, GTRecipeType> event) {
-        // CustomRecipeTypes.init();
+        GregsDelightRecipeTypes.init();
     }
 
     /**
@@ -120,7 +123,8 @@ public class GregsDelight {
      * @param event
      */
     private void registerMachines(GTCEuAPI.RegisterEvent<ResourceLocation, MachineDefinition> event) {
-        // CustomMachines.init();
+        GregsDelightMachines.init();
+        GregsDelightMachineUtils.init();
     }
 
     /**
